@@ -1,0 +1,48 @@
+
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-body">
+				<form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input class="form-control" type="text" name="user" [(ngModel)]="username"
+							placeholder="username" id="user" #user="ngModel" required><br>
+						<div *ngIf="f.submitted && user.invalid">
+
+							<div class="alert alert-danger" role="alert" *ngIf="user.errors?.required">
+								Username is required!
+							</div>
+						</div>
+
+
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input class="form-control" id="pass" name="pass" type="password" [(ngModel)]="password"
+							placeholder="password" #pass="ngModel" required><br>
+
+						<div class="alert alert-danger" role="alert" *ngIf="f.submitted && pass.invalid ">
+							<div *ngIf="pass.errors?.required">Password is required</div>
+
+						</div>
+					</div>
+
+
+					<div class="form-group">
+
+
+						<button class="btn float-right login_btn" type="submit" name="login" >
+Login
+						</button>
+					</div>
+				</form>
+			</div>
+			
+		</div>
+	</div>
+
+
